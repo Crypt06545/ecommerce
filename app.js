@@ -3,6 +3,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
+const { notFound, errorHandler } = require('./middlewares/auth.js')
 
 
 const app = express()
@@ -13,6 +14,10 @@ app.use(cookieParser())
 
 
 app.use('/api', require('./routes/authRouter'))
+
+
+// app.use(notFound);
+// app.request(errorHandler);
 
 mongoose.connect(process.env.DB_URI, {
     useNewUrlParser: true,

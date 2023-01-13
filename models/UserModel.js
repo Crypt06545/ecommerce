@@ -2,12 +2,8 @@ const mongoose = require('mongoose')
 
 
 const userSchema = new mongoose.Schema({
-    fullname: {
-        type: String,
-        required: true,
-        trim: true,
-        maxlength: 25
-    },
+    fullname: String,
+
     username: {
         type: String,
         required: true,
@@ -15,22 +11,18 @@ const userSchema = new mongoose.Schema({
         maxlength: 25,
         unique: true
     },
-    email: {
-        type: String,
-        required: true,
-        trim: true,
-        unique: true
-    },
-    password: {
-        type: String,
-        required: true
-    },
+
+    email: String,
+    mobile: Number,
+    gender: String,
+    password: String,
+
     avatar: {
         type: String,
         default: 'https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png'
     },
-    role: { type: String, default: 'user' },
-    gender: { type: String, default: 'male' }
+    IsAdmin: { type: Boolean, default: false },
+
 }, {
     timestamps: true
 })
